@@ -123,7 +123,7 @@ for run in range(runs):
     # Construct model
     loss = logsigma(pset_input) + tf.log(1 - logsigma(nset_input)) # - regu_weight*regularization(pset_input) + regu_weight*regularization(nset_input)
 
-    optimizer = tf.train.AdamOptimizer(learning_rate=lr,beta1=0.01,beta2=0.01) # beta plus petit ?
+    optimizer = tf.train.AdamOptimizer(learning_rate=lr,beta1=0.01,beta2=0.01) 
     train_op = optimizer.minimize(-loss)
 
     # Initializing the variables
