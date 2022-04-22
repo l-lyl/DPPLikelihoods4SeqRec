@@ -109,6 +109,8 @@ class Recommender(object):
         lk_emb_i = F.normalize(lk_tensor, p=2, dim=1)
         l_kernel = torch.matmul(lk_emb_i, lk_emb_i.t())
         
+        #l_kernel = torch.sigmoid(l_kernel)  #this line is optional; use this line, if encounter non-invertible or nan problem
+        
         #l_kernel_un = torch.matmul(lk_tensor, lk_tensor.t()) ##un-normalized pre-learned kernel
 
         # convert to sequences, targets and users
@@ -202,7 +204,7 @@ class Recommender(object):
                             batch_pos_kernel[n] = l_kernel[batch_targets[n]-1][:, batch_targets[n]-1]
                             batch_set_kernel[n] = l_kernel[batch_sets[n]-1][:, batch_sets[n]-1]
                         
-                        batch_pos_q = torch.diag_embed(torch.exp(targets_prediction))
+                        batch_pos_q = torch.diag_embed(torch.exp(targets_prediction))  #can also try sigmoid in some cases
                         batch_set_q = torch.diag_embed(torch.exp(batch_predictions))
                         
                         batch_pos_kernel = torch.bmm(torch.bmm(batch_pos_q, batch_pos_kernel), batch_pos_q)
@@ -334,11 +336,7 @@ class Recommender(object):
                                                                         epoch_loss,
                                                                         time() - t2)
                 print(output_str)
-        f_pre = str(config.learning_rate)+'_'+str(config.dpp_loss)+'.txt'
-        with open(f_pre, "a") as file:
-            sstr = " ".join(str(i) for i in pre_list)
-            file.write(sstr + "\n")
-        file.close()
+        
     def _generate_negative_samples(self, users, interactions, n):
         
         """
