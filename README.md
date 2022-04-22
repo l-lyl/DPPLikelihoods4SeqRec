@@ -31,4 +31,7 @@ If you use this Caser in your paper, please cite the paper:
 
 # Acknowledgment
 
-This project (utils.py, interactions.py, etc.) is heavily built on [Spotlight](https://github.com/maciejkula/spotlight) and [Caser](https://github.com/graytowne/caser_pytorch). Thank the authors!
+This project (utils.py, interactions.py, etc.) is heavily built on [Spotlight](https://github.com/maciejkula/spotlight) and [Caser](https://github.com/graytowne/caser_pytorch). 
+The diverse kernel learning code is built based on [Logistic DPP](https://github.com/RomainWarlop/logisticDPP)
+
+Thank the authors!
