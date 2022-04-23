@@ -26,7 +26,7 @@ A PyTorch implementation of the paper:
 
 # Citation
 
-If you use this Caser in your paper, please cite the paper:
+If you use this code in your paper, please cite the paper:
 
 
 # Acknowledgment
