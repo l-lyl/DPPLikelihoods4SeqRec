@@ -445,7 +445,6 @@ if __name__ == '__main__':
     parser.add_argument('--neg_samples', type=int, default=3, help="Z")
     parser.add_argument('--dpp_loss', type=int, default=2, help="0:cross-entropy, 1:DSL, 2:CDSL")
     parser.add_argument('--batch_format', type=int, default=1, help="use minibatch format for dpp loss or not")
-    parser.add_argument('--dpp_generation', type=int, default=0, help="whether use dpp MAP inference to generate items for evaluation")
     # train arguments
     parser.add_argument('--n_iter', type=int, default=100)
     parser.add_argument('--seed', type=int, default=1234)

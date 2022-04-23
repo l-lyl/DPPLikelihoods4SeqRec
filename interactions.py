@@ -62,7 +62,6 @@ class Interactions(object):
 
         self.num_users = num_user
         self.num_items = num_item
-        print(file_path, num_user, num_item)
         
         self.user_ids = user_ids
         self.item_ids = item_ids
